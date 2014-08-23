@@ -1,5 +1,5 @@
 # Export rom name
-export VENDOR := pa
+export VENDOR := venture
 
 # Version info
 ROM_VERSION_MAJOR := 0

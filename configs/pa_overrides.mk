@@ -34,4 +34,4 @@ endif
 
 # Extra properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.pa.device=$(DEVICE)
+    ro.venture.device=$(DEVICE)

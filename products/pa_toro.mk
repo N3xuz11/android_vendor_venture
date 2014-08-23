@@ -14,22 +14,22 @@
 
 # Check for target product
 
-ifeq (pa_toro,$(TARGET_PRODUCT))
+ifeq (venture_toro,$(TARGET_PRODUCT))
 
 # OVERLAY_TARGET adds overlay asset source
-OVERLAY_TARGET := pa_xhdpi
+OVERLAY_TARGET := venture_xhdpi
 
 # Build paprefs from sources
 PREFS_FROM_SOURCE ?= true
 
 # Include ParanoidAndroid common configuration
-include vendor/pa/main.mk
+include vendor/venture/main.mk
 
 # Inherit AOSP device configuration
 $(call inherit-product, device/samsung/toro/full_toro.mk)
 
 # Override AOSP build properties
-PRODUCT_NAME := pa_toro
+PRODUCT_NAME := venture_toro
 PRODUCT_BRAND := Google
 PRODUCT_MODEL := Galaxy Nexus
 PRODUCT_MANUFACTURER := Samsung

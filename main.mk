@@ -14,13 +14,12 @@
 
 
 
-include vendor/pa/vendor.mk
-include vendor/pa/configs/aosp_fixes.mk
-include vendor/pa/configs/system.mk
-include vendor/pa/configs/pa_extras.mk
-include vendor/pa/configs/pa_overrides.mk
-include vendor/pa/configs/bootanimation.mk
-include vendor/pa/configs/version.mk
-include vendor/pa/configs/themes_common.mk
-
+include vendor/venture/vendor.mk
+include vendor/venture/configs/aosp_fixes.mk
+include vendor/venture/configs/system.mk
+include vendor/venture/configs/pa_extras.mk
+include vendor/venture/configs/pa_overrides.mk
+include vendor/venture/configs/bootanimation.mk
+include vendor/venture/configs/version.mk
+include vendor/venture/configs/themes_common.mk
 
