@@ -13,22 +13,22 @@
 # limitations under the License.
 
 # Check for target product
-ifeq (pa_tilapia,$(TARGET_PRODUCT))
+ifeq (venture_tilapia,$(TARGET_PRODUCT))
 
 # OVERLAY_TARGET adds overlay asset source
-OVERLAY_TARGET := pa_tvdpi
+OVERLAY_TARGET := venture_tvdpi
 
 # Build paprefs from sources
 PREFS_FROM_SOURCE ?= false
 
 # Include ParanoidAndroid common configuration
-include vendor/pa/main.mk
+include vendor/venture/main.mk
 
 # Inherit AOSP device configuration
 $(call inherit-product, device/asus/tilapia/full_tilapia.mk)
 
 # Override AOSP build properties
-PRODUCT_NAME := pa_tilapia
+PRODUCT_NAME := venture_tilapia
 PRODUCT_BRAND := Google
 PRODUCT_MODEL := Nexus 7
 PRODUCT_MANUFACTURER := Asus

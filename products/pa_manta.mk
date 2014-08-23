@@ -13,22 +13,22 @@
 # limitations under the License.
 
 # Check for target product
-ifeq (pa_manta,$(TARGET_PRODUCT))
+ifeq (venture_manta,$(TARGET_PRODUCT))
 
 # OVERLAY_TARGET adds overlay asset source
-OVERLAY_TARGET := pa_manta
+OVERLAY_TARGET := venture_manta
 
 # Build paprefs from sources
 PREFS_FROM_SOURCE ?= true
 
 # Include ParanoidAndroid common configuration
-include vendor/pa/main.mk
+include vendor/venture/main.mk
 
 # Inherit AOSP device configuration
 $(call inherit-product, device/samsung/manta/full_manta.mk)
 
 # Override AOSP build properties
-PRODUCT_NAME := pa_manta
+PRODUCT_NAME := venture_manta
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Nexus 10
 PRODUCT_MANUFACTURER := Samsung

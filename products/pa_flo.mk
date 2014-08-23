@@ -13,22 +13,22 @@
 # limitations under the License.
 
 # Check for target product
-ifeq (pa_flo,$(TARGET_PRODUCT))
+ifeq (venture_flo,$(TARGET_PRODUCT))
 
 # OVERLAY_TARGET adds overlay asset source
-OVERLAY_TARGET := pa_flo
+OVERLAY_TARGET := venture_flo
 
 # Build paprefs from sources
 PREFS_FROM_SOURCE ?= true
 
 # Include ParanoidAndroid common configuration
-include vendor/pa/main.mk
+include vendor/venture/main.mk
 
 # Inherit AOSP device configuration
 $(call inherit-product, device/asus/flo/full_flo.mk)
 
 # Override AOSP build properties
-PRODUCT_NAME := pa_flo
+PRODUCT_NAME := venture_flo
 PRODUCT_BRAND := Google
 PRODUCT_MODEL := Nexus 7
 PRODUCT_MANUFACTURER := Asus
