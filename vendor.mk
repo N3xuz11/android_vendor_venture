@@ -9,4 +9,4 @@ ROM_VERSION_MAINTENANCE :=
 # A# Alpha
 # T# Test
 # R# Release
-ROM_VERSION_TAG := T4
+ROM_VERSION_TAG := T5
