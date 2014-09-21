@@ -1,3 +1,4 @@
+add_lunch_combo venture_bacon-userdebug
 add_lunch_combo venture_deb-userdebug
 add_lunch_combo venture_grouper-userdebug
 add_lunch_combo venture_flo-userdebug
