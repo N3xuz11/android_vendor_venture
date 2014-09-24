@@ -3,7 +3,7 @@ export VENDOR := venture
 
 # Version info
 ROM_VERSION_MAJOR := 0
-ROM_VERSION_MINOR := 20
+ROM_VERSION_MINOR := 22
 ROM_VERSION_MAINTENANCE := 
 # B# Beta
 # A# Alpha
