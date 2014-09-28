@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Version 2.0.4, Adapted for Venture.
+# Version 2.0.4, Adapted for AOSPA.
 
 # We don't allow scrollback buffer
 echo -e '\0033\0143'
@@ -63,7 +63,7 @@ fi
 # Get start time
 res1=$(date +%s.%N)
 
-echo -e "${cya}Building ${bldcya}Venture $VERSION for $DEVICE ${txtrst}";
+echo -e "${cya}Building ${bldcya}AOSPA $VERSION for $DEVICE ${txtrst}";
 echo -e "${bldgrn}Start time: $(date) ${txtrst}"
 
 # Decide what command to execute

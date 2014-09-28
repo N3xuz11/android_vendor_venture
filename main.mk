@@ -17,8 +17,9 @@
 include vendor/venture/vendor.mk
 include vendor/venture/configs/aosp_fixes.mk
 include vendor/venture/configs/system.mk
-include vendor/venture/configs/venture_extras.mk
-include vendor/venture/configs/venture_overrides.mk
+include vendor/venture/configs/pa_overrides.mk
 include vendor/venture/configs/bootanimation.mk
 include vendor/venture/configs/version.mk
+include vendor/venture/configs/legacy_extras.mk
 include vendor/venture/configs/themes_common.mk
+#include vendor/venture/sepolicy/sepolicy.mk
