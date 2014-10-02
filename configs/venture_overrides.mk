@@ -29,7 +29,7 @@ PRODUCT_PACKAGES += \
 # Include ParanoidOTA
 ifneq ($(NO_OTA_BUILD),true)
     PRODUCT_PACKAGES += \
-        ParanoidOTA
+        VentureOTA
 endif
 
 # Extra properties
