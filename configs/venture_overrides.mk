@@ -32,6 +32,10 @@ ifneq ($(NO_OTA_BUILD),true)
         Venture
 endif
 
+# Include Venture kernel tweaks
+    PRODUCT_COPY_FILES += \
+		vendor/venture/prebuilt/etc/init.d/07venturekernel:system/etc/init.d/07venturekernel
+
 # Extra properties
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.venture.device=$(DEVICE)
