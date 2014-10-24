@@ -11,6 +11,9 @@ DIR="$(cd `dirname $0`; pwd)"
 OUT="$(readlink $DIR/out)"
 [ -z "${OUT}" ] && OUT="${DIR}/out"
 
+# Venturization of upstream pulls
+cp vendor/venture/proprietary/system/core/rootdir/init.rc system/core/rootdir/init.rc
+
 # Prepare output customization commands
 red=$(tput setaf 1)             #  red
 grn=$(tput setaf 2)             #  green
