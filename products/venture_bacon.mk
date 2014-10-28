@@ -20,12 +20,13 @@ ifeq (venture_bacon,$(TARGET_PRODUCT))
 OVERLAY_TARGET := venture_xxhdpi
 
 # Build paprefs from sources
-PREFS_FROM_SOURCE ?= false
+PREFS_FROM_SOURCE ?= true
 
+# Below line commented out as upstream does not include this..
 # Inherit telephony common stuff
-$(call inherit-product, vendor/venture/configs/telephony.mk)
+# $(call inherit-product, vendor/venture/configs/telephony.mk)
 
-# Include AOSPA common configuration
+# Include Venture common configuration
 include vendor/venture/main.mk
 
 # Inherit device configuration
@@ -35,10 +36,11 @@ $(call inherit-product, device/oneplus/bacon/full_bacon.mk)
 PRODUCT_NAME := venture_bacon
 PRODUCT_DEVICE := bacon
 PRODUCT_BRAND := Oneplus
-PRODUCT_MODEL := One
+PRODUCT_MODEL := One A0001
 PRODUCT_MANUFACTURER := Oneplus
 
 # Set build fingerprint / ID / Product Name ect.
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=bacon TARGET_DEVICE=bacon
+# PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=bacon TARGET_DEVICE=bacon
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=occam BUILD_FINGERPRINT="google/occam/mako:4.4.4/KTU84P/1227136:user/release-keys" PRIVATE_BUILD_DESC="occam-user 4.4.4 KTU84P 1227136 release-keys"
 
 endif

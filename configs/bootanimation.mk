@@ -17,7 +17,7 @@ ifneq ($(filter venture_mako venture_maguro venture_toro venture_toroplus ventur
     PRODUCT_COPY_FILES += \
         vendor/venture/prebuilt/bootanimation/1280x720.zip:system/media/bootanimation.zip
 endif
-ifeq (venture_hammerhead venture_bacon,$(TARGET_PRODUCT))
+ifneq ($(filter venture_bacon venture_hammerhead,$(TARGET_PRODUCT)),)
     PRODUCT_COPY_FILES += \
         vendor/venture/prebuilt/bootanimation/1920x1080.zip:system/media/bootanimation.zip
 endif
