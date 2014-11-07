@@ -11,6 +11,9 @@ DIR="$(cd `dirname $0`; pwd)"
 OUT="$(readlink $DIR/out)"
 [ -z "${OUT}" ] && OUT="${DIR}/out"
 
+# Venturization of upstream pulls
+cp vendor/venture/proprietary/system/core/rootdir/init.rc system/core/rootdir/init.rc
+
 # Prepare output customization commands
 red=$(tput setaf 1)             #  red
 grn=$(tput setaf 2)             #  green
@@ -63,7 +66,7 @@ fi
 # Get start time
 res1=$(date +%s.%N)
 
-echo -e "${cya}Building ${bldcya}AOSPA $VERSION for $DEVICE ${txtrst}";
+echo -e "${cya}Building ${bldcya}Venture $VERSION for $DEVICE ${txtrst}";
 echo -e "${bldgrn}Start time: $(date) ${txtrst}"
 
 # Decide what command to execute

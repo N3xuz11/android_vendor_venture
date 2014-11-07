@@ -26,10 +26,15 @@ PRODUCT_PACKAGES += \
 #        ParanoidPreferences
 #endif
 
-# Include ParanoidOTA
+# Include Venture kernel tweaks
+    PRODUCT_COPY_FILES += \
+		vendor/venture/prebuilt/etc/init.d/07venturekernel:system/etc/init.d/07venturekernel
+
+
+# Include VentureOTA
 ifneq ($(NO_OTA_BUILD),true)
     PRODUCT_PACKAGES += \
-        ParanoidOTA
+        Venture
 endif
 
 # Extra properties
