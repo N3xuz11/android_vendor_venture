@@ -14,7 +14,8 @@
 
 PRODUCT_PACKAGES += \
     Busybox \
-    Lightbulb
+    Lightbulb 
+
 
 # Source or prebuilt PA-prefs logic
 #ifneq ($(PREFS_FROM_SOURCE),true)
@@ -31,10 +32,12 @@ PRODUCT_PACKAGES += \
 		vendor/venture/prebuilt/etc/init.d/07venturekernel:system/etc/init.d/07venturekernel
 
 
+
+
 # Include VentureOTA
 ifneq ($(NO_OTA_BUILD),true)
     PRODUCT_PACKAGES += \
-        Venture
+        VentureBox
 endif
 
 # Extra properties
