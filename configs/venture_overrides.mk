@@ -32,9 +32,9 @@ ifneq ($(NO_OTA_BUILD),true)
         VentureBox
 endif
 
-# Include Venture kernel tweaks
-    PRODUCT_COPY_FILES += \
-		vendor/venture/prebuilt/etc/init.d/07venturekernel:system/etc/init.d/07venturekernel
+# Include Venture kernel tweaks -- CURRENT TWEAK IS BEING REMOVED FOR INTEGRITY OF THE PROJECT UNTIL IT IS FULLY FUNCTIONAL.
+#    PRODUCT_COPY_FILES += \
+#		vendor/venture/prebuilt/etc/init.d/07venturekernel:system/etc/init.d/07venturekernel
 
 # Extra properties
 PRODUCT_PROPERTY_OVERRIDES += \
