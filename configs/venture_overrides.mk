@@ -27,9 +27,9 @@ PRODUCT_PACKAGES += \
 #        ParanoidPreferences
 #endif
 
-# Include Venture kernel tweaks
-    PRODUCT_COPY_FILES += \
-		vendor/venture/prebuilt/etc/init.d/07venturekernel:system/etc/init.d/07venturekernel
+# Include Venture kernel tweaks -- removed temporarily because script is unstable
+#    PRODUCT_COPY_FILES += \
+#		vendor/venture/prebuilt/etc/init.d/07venturekernel:system/etc/init.d/07venturekernel
 
 
 
