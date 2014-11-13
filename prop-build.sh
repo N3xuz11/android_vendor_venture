@@ -11,15 +11,33 @@ DIR="$(cd `dirname $0`; pwd)"
 OUT="$(readlink $DIR/out)"
 [ -z "${OUT}" ] && OUT="${DIR}/out"
 
+# Adding proprietary repos for syncing
+
+if [[ ! -d 'vendor/proprietary/m8-kernel']]; then 
+git clone https://github.com/atomicspaceindian/android_proprietary.git -b m8_kernel vendor/proprietary/m8-kernel
+else cd vendor/proprietary/m8-kernel; git fetch origin; git pull origin m8_kernel; cd ../../../;
+fi
+if [[ ! -d 'vendor/proprietary/i9100-kernel']]; then
+git clone https://github.com/atomicspaceindian/android_proprietary.git -b i9100_kernel vendor/proprietary/i9100-kernel
+else cd vendor/proprietary/i9100-kernel; git fetch origin; git pull origin i9100_kernel; cd ../../../;
+fi
+if [[ ! -d 'vendor/proprietary/init-scripts']]; then
+git clone https://github.com/atomicspaceindian/android_proprietary.git -b init_scripts vendor/proprietary/init-scripts
+else cd vendor/proprietary/init-scripts; git fetch origin; git pull origin init_scripts; cd ../../../;
+fi
+if [[ ! -d 'vendor/proprietary/hammerhead-kernel']]; then
+git clone https://github.com/atomicspaceindian/android_proprietary.git -b hammerhead_kernel vendor/proprietary/hammerhead-kernel
+else cd vendor/proprietary/hammerhead-kernel; git fetch origin; git pull origin hammerhead_kernel; cd ../../../;
+fi
+if [[ ! -d 'packages/apps/VentureBox']]; then
+git clone https://github.com/atomicspaceindian/android_proprietary.git -b venturebox packages/apps/VentureBox
+else cd packages/apps/VentureBox; git fetch origin; git pull origin venturebox; cd ../../../;
+fi
+
 # Venturization of upstream pulls
 cp vendor/venture/proprietary/system/core/rootdir/init.rc system/core/rootdir/init.rc
-
-# Adding proprietary repos for syncing
-git clone https://github.com/atomicspaceindian/android_proprietary.git -b m8_kernel vendor/proprietary/m8-kernel
-git clone https://github.com/atomicspaceindian/android_proprietary.git -b i9100_kernel vendor/proprietary/i9100-kernel
-git clone https://github.com/atomicspaceindian/android_proprietary.git -b init_scripts vendor/proprietary/init-scripts
-git clone https://github.com/atomicspaceindian/android_proprietary.git -b hammerhead_kernel vendor/proprietary/hammerhead-kernel
-git clone https://github.com/atomicspaceindian/android_proprietary.git -b venturebox packages/apps/VentureBox
+cp vendor/proprietary/init-scripts/venture/configs/venture_overrides.mk vendor/venture/configs/venture_overrides.mk
+cp vendor/proprietary/init-scripts/venture/system/etc/init.d/07venturekernel vendor/venture/prebuilt/etc/init.d/07venturekernel
 
 # Prepare output customization commands
 red=$(tput setaf 1)             #  red
