@@ -27,10 +27,10 @@ PRODUCT_PACKAGES += \
 #endif
 
 # Include ParanoidOTA
-ifneq ($(NO_OTA_BUILD),true)
-    PRODUCT_PACKAGES += \
-        VentureBox
-endif
+#ifneq ($(NO_OTA_BUILD),true)
+#    PRODUCT_PACKAGES += \
+#        VentureBox
+#endif
 
 # Include Venture kernel tweaks -- CURRENT TWEAK IS BEING REMOVED FOR INTEGRITY OF THE PROJECT UNTIL IT IS FULLY FUNCTIONAL.
 #    PRODUCT_COPY_FILES += \
