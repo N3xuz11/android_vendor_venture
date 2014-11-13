@@ -35,10 +35,10 @@ PRODUCT_PACKAGES += \
 
 
 # Include VentureOTA
-ifneq ($(NO_OTA_BUILD),true)
-    PRODUCT_PACKAGES += \
-        VentureBox
-endif
+#ifneq ($(NO_OTA_BUILD),true)
+#    PRODUCT_PACKAGES += \
+#        VentureBox
+#endif
 
 # Extra properties
 PRODUCT_PROPERTY_OVERRIDES += \
