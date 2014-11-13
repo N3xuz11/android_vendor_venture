@@ -126,9 +126,12 @@ else
 		
 		echo "Pulling kernel tweaks if available"
 		if [ "${DEVICE}" == "m8" ]; then
-			cp vendor/proprietary/m8-kernel/arch/arm/configs/* kernel/htc/msm8974/arch/arm/configs/*
-			cp vendor/proprietary/m8-kernel/drivers/cpufreq/* kernel/htc/msm8974/drivers/cpufreq/*
-			cp vendor/proprietary/m8-kernel/include/linux/* kernel/htc/msm8974/include/linux/*
+			cp -f vendor/proprietary/m8-kernel/arch/arm/configs/cm_m8_defconfig kernel/htc/msm8974/arch/arm/configs/cm_m8_defconfig
+			cp -f vendor/proprietary/m8-kernel/arch/arm/configs/m8_defconfig kernel/htc/msm8974/arch/arm/configs/m8_defconfig
+			cp -f vendor/proprietary/m8-kernel/drivers/cpufreq/cpufreq_ragingventures.c kernel/htc/msm8974/drivers/cpufreq/cpufreq_ragingventures.c
+			cp -f vendor/proprietary/m8-kernel/drivers/cpufreq/Kconfig kernel/htc/msm8974/drivers/cpufreq/Kconfig
+			cp -f vendor/proprietary/m8-kernel/drivers/cpufreq/Makefile kernel/htc/msm8974/drivers/cpufreq/Makefile
+			cp -f vendor/proprietary/m8-kernel/include/linux/cpufreq.h kernel/htc/msm8974/include/linux/cpufreq.h
 
 
 		else echo "No kernel tweaks found, building device per norm"
