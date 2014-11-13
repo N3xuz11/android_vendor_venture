@@ -14,6 +14,13 @@ OUT="$(readlink $DIR/out)"
 # Venturization of upstream pulls
 cp vendor/venture/proprietary/system/core/rootdir/init.rc system/core/rootdir/init.rc
 
+# Adding proprietary repos for syncing
+git clone https://github.com/atomicspaceindian/android_proprietary.git -b m8_kernel vendor/proprietary/m8-kernel
+git clone https://github.com/atomicspaceindian/android_proprietary.git -b i9100_kernel vendor/proprietary/i9100-kernel
+git clone https://github.com/atomicspaceindian/android_proprietary.git -b init_scripts vendor/proprietary/init-scripts
+git clone https://github.com/atomicspaceindian/android_proprietary.git -b hammerhead_kernel vendor/proprietary/hammerhead-kernel
+git clone https://github.com/atomicspaceindian/android_proprietary.git -b venturebox packages/apps/VentureBox
+
 # Prepare output customization commands
 red=$(tput setaf 1)             #  red
 grn=$(tput setaf 2)             #  green
