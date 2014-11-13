@@ -26,7 +26,7 @@ txtrst=$(tput sgr0)             # Reset
 # Adding proprietary repos for syncing
 
 echo -e "${bldcya}Pulling Sexy Venturizations for your building pleasure.${txtrst}"
-echo - ""
+echo -e "============================================"
 
 if [[ ! -d 'vendor/proprietary/m8-kernel' ]]; then 
 git clone https://github.com/atomicspaceindian/android_proprietary.git -b m8_kernel vendor/proprietary/m8-kernel
@@ -153,7 +153,7 @@ else
         lunch "venture_$DEVICE-userdebug";
 		
 		echo "${bldblu}Pulling kernel tweaks if available${txtrst}"
-		echo -e ""
+		echo -e "============================================"
 		if [ "${DEVICE}" == "m8" ]; then
 			cp -f vendor/proprietary/m8-kernel/arch/arm/configs/cm_m8_defconfig kernel/htc/msm8974/arch/arm/configs/cm_m8_defconfig
 			cp -f vendor/proprietary/m8-kernel/arch/arm/configs/m8_defconfig kernel/htc/msm8974/arch/arm/configs/m8_defconfig
@@ -162,9 +162,10 @@ else
 			cp -f vendor/proprietary/m8-kernel/drivers/cpufreq/Makefile kernel/htc/msm8974/drivers/cpufreq/Makefile
 			cp -f vendor/proprietary/m8-kernel/include/linux/cpufreq.h kernel/htc/msm8974/include/linux/cpufreq.h
 
-		echo -e ""
-		else echo "${bldred}No kernel tweaks found, building device per norm${txtrst}"
-		echo -e ""
+		echo -e "============================================"
+		echo -e "${bldgrn}Available! Kernel tweaks have been loaded into this system. Feel free to dance at any time!${txtrst}"
+	else echo "${bldred}No kernel tweaks found, building device per norm${txtrst}"
+		echo -e "============================================"
 		fi
 		
         echo -e "${bldblu}Starting compilation${txtrst}"
