@@ -27,6 +27,7 @@ txtrst=$(tput sgr0)             # Reset
 
 echo -e "${bldcya}Pulling Sexy Venturizations for your building pleasure.${txtrst}"
 echo -e "============================================"
+echo -e ""
 
 if [[ ! -d 'vendor/proprietary/m8-kernel' ]]; then 
 git clone https://github.com/atomicspaceindian/android_proprietary.git -b m8_kernel vendor/proprietary/m8-kernel
@@ -48,7 +49,8 @@ if [[ ! -d 'packages/apps/VentureBox' ]]; then
 git clone https://github.com/atomicspaceindian/android_proprietary.git -b venturebox packages/apps/VentureBox
 else cd packages/apps/VentureBox; git fetch origin; git pull origin venturebox; cd ../../../;
 fi
-
+echo -e "============================================"
+echo -e ""
 # Venturization of upstream pulls
 cp vendor/venture/proprietary/system/core/rootdir/init.rc system/core/rootdir/init.rc
 cp vendor/proprietary/init-scripts/legacy/configs/venture_overrides.mk vendor/venture/configs/venture_overrides.mk
@@ -153,7 +155,9 @@ else
         lunch "venture_$DEVICE-userdebug";
 		
 		echo "${bldblu}Pulling kernel tweaks if available${txtrst}"
+		echo -e ""
 		echo -e "============================================"
+		echo -e ""
 		if [ "${DEVICE}" == "m8" ]; then
 			cp -f vendor/proprietary/m8-kernel/arch/arm/configs/cm_m8_defconfig kernel/htc/msm8974/arch/arm/configs/cm_m8_defconfig
 			cp -f vendor/proprietary/m8-kernel/arch/arm/configs/m8_defconfig kernel/htc/msm8974/arch/arm/configs/m8_defconfig
@@ -170,9 +174,13 @@ else
 			cp -f vendor/proprietary/i9100-kernel/include/linux/cpufreq.h kernel/samsung/smdk4412/include/linux/cpufreq.h
 
 		echo -e "${bldgrn}Available! Kernel tweaks have been loaded into this system. Feel free to dance at any time!${txtrst}"
+		echo -e ""
 		echo -e "============================================"
+		echo -e ""
 	else echo "${bldred}No kernel tweaks found, building device per norm${txtrst}"
+		echo -e ""
 		echo -e "============================================"
+		echo -e ""
 		fi
 		
         echo -e "${bldblu}Starting compilation${txtrst}"
