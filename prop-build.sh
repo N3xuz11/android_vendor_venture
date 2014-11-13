@@ -162,7 +162,6 @@ else
 			cp -f vendor/proprietary/m8-kernel/drivers/cpufreq/Makefile kernel/htc/msm8974/drivers/cpufreq/Makefile
 			cp -f vendor/proprietary/m8-kernel/include/linux/cpufreq.h kernel/htc/msm8974/include/linux/cpufreq.h
 
-		echo -e "============================================"
 		echo -e "${bldgrn}Available! Kernel tweaks have been loaded into this system. Feel free to dance at any time!${txtrst}"
 	else echo "${bldred}No kernel tweaks found, building device per norm${txtrst}"
 		echo -e "============================================"
