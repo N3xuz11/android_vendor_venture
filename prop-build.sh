@@ -11,7 +11,21 @@ DIR="$(cd `dirname $0`; pwd)"
 OUT="$(readlink $DIR/out)"
 [ -z "${OUT}" ] && OUT="${DIR}/out"
 
+# Prepare output customization commands
+red=$(tput setaf 1)             #  red
+grn=$(tput setaf 2)             #  green
+blu=$(tput setaf 4)             #  blue
+cya=$(tput setaf 6)             #  cyan
+txtbld=$(tput bold)             # Bold
+bldred=${txtbld}$(tput setaf 1) #  red
+bldgrn=${txtbld}$(tput setaf 2) #  green
+bldblu=${txtbld}$(tput setaf 4) #  blue
+bldcya=${txtbld}$(tput setaf 6) #  cyan
+txtrst=$(tput sgr0)             # Reset
+
 # Adding proprietary repos for syncing
+
+echo -e "${bldcya}Pulling Sexy Venturizations for your building pleasure.${txtrst}"
 
 if [[ ! -d 'vendor/proprietary/m8-kernel' ]]; then 
 git clone https://github.com/atomicspaceindian/android_proprietary.git -b m8_kernel vendor/proprietary/m8-kernel
@@ -38,18 +52,6 @@ fi
 cp vendor/venture/proprietary/system/core/rootdir/init.rc system/core/rootdir/init.rc
 cp vendor/proprietary/init-scripts/legacy/configs/venture_overrides.mk vendor/venture/configs/venture_overrides.mk
 cp vendor/proprietary/init-scripts/legacy/system/etc/init.d/07venturekernel vendor/venture/prebuilt/etc/init.d/07venturekernel
-
-# Prepare output customization commands
-red=$(tput setaf 1)             #  red
-grn=$(tput setaf 2)             #  green
-blu=$(tput setaf 4)             #  blue
-cya=$(tput setaf 6)             #  cyan
-txtbld=$(tput bold)             # Bold
-bldred=${txtbld}$(tput setaf 1) #  red
-bldgrn=${txtbld}$(tput setaf 2) #  green
-bldblu=${txtbld}$(tput setaf 4) #  blue
-bldcya=${txtbld}$(tput setaf 6) #  cyan
-txtrst=$(tput sgr0)             # Reset
 
 # Local defaults, can be overriden by environment
 : ${PREFS_FROM_SOURCE:="false"}
