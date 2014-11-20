@@ -28,10 +28,6 @@ txtrst=$(tput sgr0)             # Reset
 echo -e "${bldcya}Pulling Sexy Venturizations for your building pleasure.${txtrst}"
 echo -e "============================================"
 
-if [[ ! -d 'vendor/proprietary/m8-kernel' ]]; then 
-git clone https://github.com/atomicspaceindian/android_proprietary.git -b m8_kernel vendor/proprietary/m8-kernel
-else cd vendor/proprietary/m8-kernel; git fetch origin; git pull origin m8_kernel; cd ../../../;
-fi
 if [[ ! -d 'vendor/proprietary/i9100-kernel' ]]; then
 git clone https://github.com/atomicspaceindian/android_proprietary.git -b i9100_kernel vendor/proprietary/i9100-kernel
 else cd vendor/proprietary/i9100-kernel; git fetch origin; git pull origin i9100_kernel; cd ../../../;
@@ -156,22 +152,6 @@ else
         export PREFS_FROM_SOURCE
         lunch "venture_$DEVICE-userdebug";
 		
-		echo "${bldblu}Pulling kernel tweaks if available${txtrst}"
-		echo -e "============================================"
-		if [ "${DEVICE}" == "m8" ]; then
-			cp -f vendor/proprietary/m8-kernel/arch/arm/configs/cm_m8_defconfig kernel/htc/msm8974/arch/arm/configs/cm_m8_defconfig
-			cp -f vendor/proprietary/m8-kernel/arch/arm/configs/m8_defconfig kernel/htc/msm8974/arch/arm/configs/m8_defconfig
-			cp -f vendor/proprietary/m8-kernel/drivers/cpufreq/cpufreq_ragingventures.c kernel/htc/msm8974/drivers/cpufreq/cpufreq_ragingventures.c
-			cp -f vendor/proprietary/m8-kernel/drivers/cpufreq/Kconfig kernel/htc/msm8974/drivers/cpufreq/Kconfig
-			cp -f vendor/proprietary/m8-kernel/drivers/cpufreq/Makefile kernel/htc/msm8974/drivers/cpufreq/Makefile
-			cp -f vendor/proprietary/m8-kernel/include/linux/cpufreq.h kernel/htc/msm8974/include/linux/cpufreq.h
-
-		echo -e "${bldgrn}Available! Kernel tweaks have been loaded into this system. Feel free to dance at any time!${txtrst}"
-		echo -e "============================================"
-	else echo "${bldred}No kernel tweaks found, building device per norm${txtrst}"
-		echo -e "============================================"
-		fi
-
         echo -e "${bldblu}Starting compilation${txtrst}"
         mka bacon
 fi
