@@ -158,22 +158,6 @@ else
 		echo -e ""
 		echo -e "============================================"
 		echo -e ""
-		if [ "${DEVICE}" == "m8" ]; then
-			cp -f vendor/proprietary/m8-kernel/arch/arm/configs/cm_m8_defconfig kernel/htc/msm8974/arch/arm/configs/cm_m8_defconfig
-			cp -f vendor/proprietary/m8-kernel/arch/arm/configs/m8_defconfig kernel/htc/msm8974/arch/arm/configs/m8_defconfig
-			cp -f vendor/proprietary/m8-kernel/drivers/cpufreq/cpufreq_ragingventures.c kernel/htc/msm8974/drivers/cpufreq/cpufreq_ragingventures.c
-			cp -f vendor/proprietary/m8-kernel/drivers/cpufreq/Kconfig kernel/htc/msm8974/drivers/cpufreq/Kconfig
-			cp -f vendor/proprietary/m8-kernel/drivers/cpufreq/Makefile kernel/htc/msm8974/drivers/cpufreq/Makefile
-			cp -f vendor/proprietary/m8-kernel/include/linux/cpufreq.h kernel/htc/msm8974/include/linux/cpufreq.h
-		echo -e "${bldgrn}Available! Kernel tweaks have been loaded into this system. Feel free to dance at any time!${txtrst}"
-		echo -e ""
-		echo -e "============================================"
-		echo -e ""
-	else echo "${bldred}No kernel tweaks found, building device per norm${txtrst}"
-		echo -e ""
-		echo -e "============================================"
-		echo -e ""		
-		fi
 		if [ "${DEVICE}" == "i9100" ]; then
 			cp -f vendor/proprietary/i9100-kernel/arch/arm/configs/custom_i9100_defconfig kernel/samsung/smdk4412/arch/arm/configs/custom_i9100_defconfig
 			cp -f vendor/proprietary/i9100-kernel/drivers/cpufreq/cpufreq_ragingventures.c kernel/samsung/smdk4412/drivers/cpufreq/cpufreq_ragingventures.c
