@@ -1,0 +1,57 @@
+#!/system/bin/sh
+# Originially taken by DroidTheory + DHO
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+# Redone for VentureROM by Topazstix 
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+# ██▒   █▓▓█████  ███▄    █ ▄▄▄█████▓ █    ██  ██▀███  ▓█████  ██▀███   ▒█████   ███▄ ▄███▓
+#▓██░   █▒▓█   ▀  ██ ▀█   █ ▓  ██▒ ▓▒ ██  ▓██▒▓██ ▒ ██▒▓█   ▀ ▓██ ▒ ██▒▒██▒  ██▒▓██▒▀█▀ ██▒
+# ▓██  █▒░▒███   ▓██  ▀█ ██▒▒ ▓██░ ▒░▓██  ▒██░▓██ ░▄█ ▒▒███   ▓██ ░▄█ ▒▒██░  ██▒▓██    ▓██░
+#  ▒██ █░░▒▓█  ▄ ▓██▒  ▐▌██▒░ ▓██▓ ░ ▓▓█  ░██░▒██▀▀█▄  ▒▓█  ▄ ▒██▀▀█▄  ▒██   ██░▒██    ▒██ 
+#   ▒▀█░  ░▒████▒▒██░   ▓██░  ▒██▒ ░ ▒▒█████▓ ░██▓ ▒██▒░▒████▒░██▓ ▒██▒░ ████▓▒░▒██▒   ░██▒
+#   ░ ▐░  ░░ ▒░ ░░ ▒░   ▒ ▒   ▒ ░░   ░▒▓▒ ▒ ▒ ░ ▒▓ ░▒▓░░░ ▒░ ░░ ▒▓ ░▒▓░░ ▒░▒░▒░ ░ ▒░   ░  ░
+#   ░ ░░   ░ ░  ░░ ░░   ░ ▒░    ░    ░░▒░ ░ ░   ░▒ ░ ▒░ ░ ░  ░  ░▒ ░ ▒░  ░ ▒ ▒░ ░  ░      ░
+#     ░░     ░      ░   ░ ░   ░       ░░░ ░ ░   ░░   ░    ░     ░░   ░ ░ ░ ░ ▒  ░      ░   
+#      ░     ░  ░         ░             ░        ░        ░  ░   ░         ░ ░         ░   
+#     ░                                                                                    
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+# Credits and props!
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+# Chris for being an epic PR man! Thanks boss!
+# Aditya for being our overseas PR and crazy cookie!
+# Brett for maintaining and designing our serverside!
+# Isaac for the wonderfully brilliant app he designed! (and for helping patch this script up :D )
+# Jacob ¯\_(ツ)_/¯ for the halo merger and java awesomeness!
+# Vedant for leading a world wide team and design our artwork!
+# -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+# Kernel Tweaks
+#
+echo "ondemand" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+echo "ondemand" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+echo "ondemand" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+echo "ondemand" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+busybox sysctl -w kernel.panic=0
+busybox sysctl -w kernel.panic_on_oops=1
+echo "15000" > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
+echo "25" > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
+echo "1" > /sys/devices/system/cpu/cpufreq/ondemand/ignore_nice_load
+echo "50" > /sys/devices/system/cpu/cpufreq/ondemand/freq_step
+echo "5" > /sys/devices/system/cpu/cpufreq/ondemand/down_differential
+echo "2" > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
+
+# Battery Tweaks
+busybox sysctl -w kernel.random.write_wakeup_threshold=256
+busybox sysctl -w kernel.random.read_wakeup_threshold=128
+
+# Breaking the lease
+# Prime Directive
+echo "15" > /proc/sys/fs/lease-break-time
+
+# Make perms all loosey-goosey
+[ -d /sys/devices/system/cpu/cpufreq/ondemand ]
+
+
+# Expand kernel perms
+[ -e /dev/cpuctl/apps/cpu.notify_on_migrate ] && chown system.system /dev/cpuctl/apps/cpu.notify_on_migrate && chmod 0666 /dev/cpuctl/apps/cpu.notify_on_migrate
+
+exit 0

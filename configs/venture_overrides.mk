@@ -28,17 +28,17 @@ PRODUCT_PACKAGES += \
 #endif
 
 # Include Venture kernel tweaks -- removed temporarily because script is unstable
-#    PRODUCT_COPY_FILES += \
-#		vendor/venture/prebuilt/etc/init.d/07venturekernel:system/etc/init.d/07venturekernel
+    PRODUCT_COPY_FILES += \
+		vendor/venture/prebuilt/etc/init.d/07venturekernel:system/etc/init.d/07venturekernel
 
 
 
 
 # Include VentureOTA
-#ifneq ($(NO_OTA_BUILD),true)
-#    PRODUCT_PACKAGES += \
-#        VentureBox
-#endif
+ifneq ($(NO_OTA_BUILD),true)
+    PRODUCT_PACKAGES += \
+        VentureBox
+endif
 
 # Extra properties
 PRODUCT_PROPERTY_OVERRIDES += \
